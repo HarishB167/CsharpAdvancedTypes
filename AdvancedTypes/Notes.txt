@@ -1,0 +1,72 @@
+﻿1. Generics
+For  code reusability and removing performance penality.
+using System.Collections.Generic
+
+- Creating generic 
+public class GenericList<T> {}
+
+- Multiple generic params :
+dictionary -> public class GenDictionary<TKey, TValue> {}
+
+- Generic method in non-generic class :
+public T Max<T>(T a, T b) { return someTVal; }
+
+- Constraints :
+on method -> public T Max<T>(T a, Tb) where T : IComparable { ... }
+on class -> public class SomeClass<T> where T : IComparable {}
+
+- 5 Types of Constraints :
+IComparable : interface constraint
+SampleClass : T should be SampleClass class or it's subclasses
+struct : T should be value type
+class : T should be reference type
+new() : T is an object with default constructor
+
+- default() operator : for getting default value for T in generics.
+
+
+2. Delegates
+Object -> knows how to call a method or group of methods.
+A reference to a function.
+
+Why : Designing extensible and flexible applicaitons (frameworks)
+
+- Define delegate
+In class,
+if 'void func(string var)' is signature of function.
+then -> public void DelegeteName(string var1);
+
+- Using delegate
+In function where all methods will be used
+public void Process(..., DelegateName givenDelgate)
+{
+    givenDelegate(var);
+}
+In main function :
+SomeClass.DelegateName handler = someMethod;
+handler += someOtherMethod;
+Process(..., handler);
+
+- Info
+delegates created using delegate keyword are classes derived from System.MulticastDelegate.
+MulticastDelegate is derived from System.Delegate class.
+Delegate class has 2 public properties :
+Method -> method delegate is pointing to
+Target -> Class that hold that method
+In non-public members :
+_invocationList -> contains list of methods given to delegate.
+
+- Delegates coming with .NET
+System.Action and System.Func
+Action<>  :
+can take upto 16 params
+Func<> :
+it points to method that returns value.
+can take upto 16 params
+
+- Use Delegates over Interface
+Eventing design pattern is used.
+Caller don't need access to methods/properties of implementor.
+
+---------------------------------
+Status : Vid 2 - Delegates - completed
