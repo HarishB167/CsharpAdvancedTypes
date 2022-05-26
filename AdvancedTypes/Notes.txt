@@ -93,5 +93,64 @@ which gets a item,
 returns boolean based on condition.
 
 - Find methods on generic lists : uses predicate functions
+
+
+4. Events and Delegates
+Communication mechanism b/w objects.
+Building loosely coupled applications.
+Helps extending applications.
+
+Publisher / event sender and Subscriber / event receiver
+
+- Publisher notifying subscribers
+Send message to subscriber
+Invoking method in a subscriber
+
+- Aggrement / Contract b/w publisher and subscriber using Delegates
+Method with a specific signature in subscriber.
+public void <MethodName>(object source, EventArgs e) {}
+called as event handler.
+Publisher don't know about existence of subscribers, it knows only about event handler methods (using delegates).
+
+- Making a publisher
+1) Define a delegate
+public delegate void <EventName>EventHandler(object source, EventArgs args);
+2) Define an event based on that delegate.
+public event <EventName>EventHandler <EventName>;
+3) Raise the event
+defining method
+protected virtual void On<EventName>()
+{
+    if (<EventName> != null) <EventName>(this, EventArgs.Empty);
+}
+using to raise event in any method : On<EventName>();
+
+- Subscribing to event
+In subscriber create method of delegate's signature as
+public void On<EventName>(object source, EventArgs e)
+{...code to execute...}
+In main method :
+publisherInstance.<EventName> += subscriberInstance.On<EventName>;
+
+- Custom EventArgs
+Create new class <Name>EventArgs which inherits EventArgs class
+then add custom fields.
+In publisher change same at :
+delegate declaration
+raise event method -> accept any params, pass it as 
+<EventName>(this, new <Name>EventArgs() { Var = arg, ... })
+During calling of this pass the params -> On<EventName>(vars,...);
+In subscribers -> change EventArgs to <Name>EventArgs.
+
+- Using EventHandler delegate class or generic from .NET
+Don't need to declare delegates in publisher
+2 forms
+EventHandler -> without args
+EventHandler<TEventArgs>
+Creating event :
+public event EventHandler<MyEventArgs> MyEventName;
+Here EventHandler<MyEventArgs> is equivalent to
+public delegate void AnotherDelegateEventHandler(object source, MyEventArgs args);
+
 ---------------------------------
-Status : Vid 3 - Lambda Expression - completed
+Status : Vid 4 - Events and Delegates - completed
