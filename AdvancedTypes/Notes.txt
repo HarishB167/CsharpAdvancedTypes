@@ -68,5 +68,30 @@ can take upto 16 params
 Eventing design pattern is used.
 Caller don't need access to methods/properties of implementor.
 
+
+3. Lambda expression
+- What
+Anonymous method
+No access modifier
+No name
+No return statement
+
+- Syntax : args => expression (args goes to expression)
+no args : () => expression
+1 arg : x => expression
+many args : (x,y,z) => expression
+
+- Scope :
+Variables of method where lambda expression is defined are accessible by lambda expression.
+
+- Assigning lambda expression to delegate
+Func<int, int> square = number => number * number;
+
+- Predicate :
+is a Delegate which points to a method
+which gets a item,
+returns boolean based on condition.
+
+- Find methods on generic lists : uses predicate functions
 ---------------------------------
-Status : Vid 2 - Delegates - completed
+Status : Vid 3 - Lambda Expression - completed
