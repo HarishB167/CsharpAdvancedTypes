@@ -171,5 +171,41 @@ So, update having instance method can prevent extension method.
 
 Suggestion : Change source code of original class, otherwise create child from this class or lastly use extension methods.
 
+
+6. LINQ
+- What
+Language INtegrated Query
+Capability to query objects natively
+
+- Can query, LINQ
+1) to Objects : Obj in memory, eg collections
+2) to Entities : Databases
+3) to XML : XML
+4) to Data Sets : ADO.NET Data Sets
+
+Linq Extension Methods :
+Where - for filtering
+OrderBy - sorting collections
+Select - projects each element of a sequence into a new form.
+Object conversion, Selecting a particular field of object.
+Single - Returns 1 matched element otherwise throws exception.
+SingleOrDefault - same as Single but otherwise returns default value for type.
+First - get first object from collection with optional filter.
+FirstOrDefault, Last, LastOrDefault
+(For Pagination :-)
+Skip - skipps given no of elements and returns remaining
+Take - returns specified no of elements
+(For aggregating :-)
+Count, Max, Min, Sum, Average
+
+Method chaining : Where(...).OrderBy(...);
+
+Linq Query Operators :
+Always starts from 'from' and ends at 'select'
+var books = 
+          from b in books
+          where b.Price < 10
+          orderby b.Title
+          select b;
 ---------------------------------
-Status : Vid 5 - Extension Methods - completed
+Status : Vid 6 - LINQ - completed
