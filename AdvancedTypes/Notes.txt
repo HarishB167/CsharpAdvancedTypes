@@ -152,5 +152,24 @@ public event EventHandler<MyEventArgs> MyEventName;
 Here EventHandler<MyEventArgs> is equivalent to
 public delegate void AnotherDelegateEventHandler(object source, MyEventArgs args);
 
+
+5. Extension Methods
+Allows us to add methods to an existing class without
+changing its source code,
+creating child class.
+(e.g. - for sealed classes)
+Create static class named <ClassToExtend>Extensions
+Inside it create static methods as
+public static <ReturnType> <MethodName>(this <ClassToExtend> varName, ...) {}
+
+Class storing extension methods should be in scope (same namespace) or import it.
+
+Trick : name the namespace of this static class containing extension methods same as namespaces in which main class is defined.
+
+Trouble of extension methods : instance method are prefered from extension methods.
+So, update having instance method can prevent extension method.
+
+Suggestion : Change source code of original class, otherwise create child from this class or lastly use extension methods.
+
 ---------------------------------
-Status : Vid 4 - Events and Delegates - completed
+Status : Vid 5 - Extension Methods - completed
