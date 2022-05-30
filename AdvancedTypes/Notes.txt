@@ -207,5 +207,21 @@ var books =
           where b.Price < 10
           orderby b.Title
           select b;
+
+
+7. Nullable Types
+Value types cannot be null.
+For making value types like DateTime struct nullable.
+Using Nullable : a generic structure from System namespace
+a) Nullabe<DateTime> date = null;
+b) DateTime? date = null;
+
+- Members of nullable type
+GetValueOrDefault
+HasValue
+Value
+
+- Null Coalescing Operator
+DateTime date3 = date ?? DateTime.Today;
 ---------------------------------
-Status : Vid 6 - LINQ - completed
+Status : Vid 7 - Nullable Types - completed
