@@ -223,5 +223,38 @@ Value
 
 - Null Coalescing Operator
 DateTime date3 = date ?? DateTime.Today;
+
+
+8. Dynamics
+- Statically-typed languages : C#, Java
+- Dynamically-typed languages : Ruby, Javascript, Python
+- Type resolution (members, properties, methods)
+Static lang -> at compile-time
+Dynamic lang -> at run-time
+
+- Benefits
+Static lang -> early feedback (compile-time)
+Dynamic lang -> easier and faster to code
+
+- C# History
+Started as static language.
+.NET 4 added dynamic capability, to improve interoperability with
+COM (writing office applications)
+and Dynamic languages (IronPython).
+
+- Reflection
+it is used when dynamic is not used.
+Inspect metadata about a type, and access properties and methods.
+
+- Using dynamics
+dynamic keyword
+dynamic obj = "value";
+obj.SomeMethod();
+In .Net v4 DLR (dynamic language runtime) was added over CLR.
+When we use dynamic value in expression, 
+then expression becomes dynamic.
+
+- Casting : is implicit.
 ---------------------------------
-Status : Vid 7 - Nullable Types - completed
+Status : Vid 8 - Dynamics - completed
+
