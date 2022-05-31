@@ -255,6 +255,34 @@ When we use dynamic value in expression,
 then expression becomes dynamic.
 
 - Casting : is implicit.
+
+
+9. Exception Handling
+Exception is class.
+Stack Trace : sequence of called method till exception.
+Guideline : should have global exception handler in app.
+
+- Exception object properties
+Message, StackTrace, Data, HelpLink,
+Source - Name of assembly/DLL file.
+TargetSite - Method causing exception
+InnerException - exception stored/wrapped in another exception.
+
+- Multiple catch blocks : most specific to most generic.
+
+- finally block : 
+It runs irrespective of exception.
+Unmanaged resources by CLR : 
+file handles, database connections, network connections, 
+graphic handles.
+For cleanup of unmanaged resources.
+Class using unmanaged resources should implement IDisposable.
+
+- Custom Exceptions
+create new class <My>Exception extending Exception
+create constructor <My>Exception(string message, Exception innerException)
+ : base(message, innerException) {}
+
 ---------------------------------
-Status : Vid 8 - Dynamics - completed
+Status : Vid 9 - Exception Handling - completed
 
