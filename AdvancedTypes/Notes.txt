@@ -283,6 +283,24 @@ create new class <My>Exception extending Exception
 create constructor <My>Exception(string message, Exception innerException)
  : base(message, innerException) {}
 
+
+10. Async Await
+Improves responsiveness
+await keyword can only be used in async method.
+Examples - Media Player, Web browser
+When to use - In blocking operations
+Accessing web, working with files and databases, Images
+
+- How
+Traditional approches : multi-threading, callbacks.
+New approach in NET4.5 : Task based - Async Await
+
+- Writing Async method
+Decorated with async keyword -> public async
+Return type is Task object -> Task for void and Task<TYPE> for returning
+Naming method -> MyMethodAsync
+Call other async method -> prepend await to other async method call, it makes thread to return control to our method caller.
+
 ---------------------------------
-Status : Vid 9 - Exception Handling - completed
+Status : Vid 10 - Async Await - completed
 
